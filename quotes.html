@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="quotes.css" />
+    <title>Diary of Jane</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="quotes.html">Quotes</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+      </ul>
+    </nav>
+
+    <h1>Quotes by Jane Austen</h1>
+
+    <div id="quotes" class="quotes">
+      <img class="img-quote" src="./images/quote_jane_portrait.jpeg" alt="" />
+      <p>
+        “I could easily forgive his pride, if he had not mortified mine.”--Pride
+        & Prejudice
+      </p>
+    </div>
+
+    <div id="quotes" class="quotes">
+      <img class="img-quote" src="./images/quote_jane_portrait.jpeg" alt="" />
+      <p>“There is no charm equal to tenderness of heart.”--Emma</p>
+    </div>
+
+    <form onsubmit="submitQuotes(event)">
+      <label for="quote">Add your own quotes</label>
+      <textarea
+        name="quote"
+        id="quote"
+        cols="30"
+        rows="2"
+        placeholder="Type your quote here"
+        required
+      ></textarea>
+
+      <select name="novel" id="novel" required>
+        <option value="">Select a novel</option>
+        <option id="pnp">Pride & Prejudice</option>
+        <option id="emma">Emma</option>
+
+        <option id="sns">Sense & Sensibility</option>
+        <option id="mp">Mansfield Park</option>
+        <option value="pers" id="pers">Persuasion</option>
+        <option id="na">Northanger Abbey</option>
+      </select>
+      <div class="submit">
+        <input type="submit" name="submit" id="submit" />
+      </div>
+    </form>
+
+    <div class="buttons">
+      <button onclick="deleteQuotes()">Clear</button>
+      <button onclick="deleteLastQuote()">Delete Last Quote</button>
+    </div>
+
+    <div id="descList"></div>
+
+    <footer id="footer"></footer>
+  </body>
+
+  <script>
+    function footerDate() {
+      year = new Date().getFullYear();
+
+      let footer_text = document.getElementById("footer");
+
+      footer_text.innerHTML = `© ${year} Mariya Abdul Ghafoor. All rights reserved.`;
+    }
+
+    function deleteLastQuote() {
+      console.log("i am in delete last quote");
+      quotesList = JSON.parse(window.sessionStorage.getItem("quotes"));
+      quotesList.pop();
+
+      sessionStorage.setItem("quotes", JSON.stringify(quotesList));
+
+      renderQuotes();
+    }
+    function deleteQuotes() {
+      console.log("i am in delete quotes");
+      sessionStorage.removeItem("quotes");
+      console.log(sessionStorage);
+      renderQuotes();
+    }
+
+    function submitQuotes() {
+      event.preventDefault();
+
+      const quote = document.getElementById("quote").value;
+
+      const novel = document.getElementById("novel").value;
+      console.log(novel);
+      const quoteObject = {
+        quote,
+        novel,
+      };
+
+      let currentQuotes = [];
+      if (window.sessionStorage.getItem("quotes")) {
+        currentQuotes = JSON.parse(window.sessionStorage.getItem("quotes"));
+      }
+
+      currentQuotes.push(quoteObject);
+
+      window.sessionStorage.setItem("quotes", JSON.stringify(currentQuotes));
+
+      renderQuotes();
+    }
+
+    function renderQuotes() {
+      let currentQuotes = [];
+
+      if (window.sessionStorage.getItem("quotes")) {
+        currentQuotes = JSON.parse(window.sessionStorage.getItem("quotes"));
+      }
+
+      let listItems = [];
+
+      for (let i = 0; i < currentQuotes.length; i++) {
+        let listItem = "";
+        const currentQuote = currentQuotes[i];
+
+        // listItem += `<img src="./images/quote_jane_portrait.jpeg" alt="" />`;
+
+        // listItem += `<dt>"${currentQuote.quote}"`;
+        // listItem += `<dd>--${currentQuote.novel}</dd>`;
+        // listItem += `<br />`;
+
+        listItem += `<div id="quotes" class="quotes">`;
+        listItem += `<img class="img-quote" src="./images/quote_jane_portrait.jpeg" alt="" />`;
+        listItem += `<p>“${currentQuote.quote}”--${currentQuote.novel}</p>`;
+        listItem += `</div>`;
+
+        listItems.push(listItem);
+      }
+
+      let descList = document.getElementById("descList");
+
+      descList.innerHTML = listItems.join("");
+    }
+    renderQuotes();
+    footerDate();
+  </script>
+</html>

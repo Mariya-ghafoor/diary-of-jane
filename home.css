@@ -1,0 +1,23 @@
+
+
+img {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 35px 0px rgba(145, 134, 134, 0.79);
+  -webkit-box-shadow: 10px 10px 35px 0px rgba(145, 134, 134, 0.79);
+  -moz-box-shadow: 10px 10px 35px 0px rgba(145, 134, 134, 0.79);
+
+
+}
+
+img:hover {
+  border: 5px solid maroon;
+
+
+}

@@ -1,0 +1,28 @@
+form {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 20px;
+  place-items: center;
+  width: 40%;
+  margin-left: 200px;
+  font-size: 20px;
+}
+
+.submit {
+  grid-column: 2 / 2;
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 10px;
+
+  font-size: 16px;
+}
+
+.submit:hover {
+  color: white;
+  background-color: #204e22;
+}
+

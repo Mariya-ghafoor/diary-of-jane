@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="subscribe.css" />
+
+    <title>Diary of Jane</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="quotes.html">Quotes</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+        </ul>
+      </nav>
+
+      <h1>Subscribe to our mailing list</h1>
+
+      <form onsubmit="alertUser(event)">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter your name here"
+        />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email address here"
+        />
+        <input type="submit" class="submit" />
+      </form>
+    </div>
+
+    <footer id="footer"></footer>
+  </body>
+
+  <script>
+    function alertUser() {
+      name = document.getElementById("name").value;
+      alert("Thanks " + name + ". We will be in touch shortly! ");
+    }
+    function footerDate() {
+      year = new Date().getFullYear();
+
+      let footer_text = document.getElementById("footer");
+
+      footer_text.innerHTML = `© ${year} Mariya Abdul Ghafoor. All rights reserved.`;
+    }
+    footerDate();
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="home.css" />
+
+    <title>Diary of Jane</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="quotes.html">Quotes</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+      </ul>
+    </nav>
+
+    <h1>Who was Jane Austen?</h1>
+    <div class="about">
+      <p>
+        Jane Austen (16 December 1775 – 18 July 1817) was an English novelist
+        known primarily for her six major novels, which implicitly interpret,
+        critique, and comment upon the British landed gentry at the end of the
+        18th century. Austen's plots often explore the dependence of women on
+        marriage for the pursuit of favourable social standing and economic
+        security. Her works are an implicit critique of the novels of
+        sensibility of the second half of the 18th century and are part of the
+        transition to 19th-century literary realism.[2][b] Her deft use of
+        social commentary, realism and biting irony have earned her acclaim
+        among critics and scholars.
+      </p>
+    </div>
+    <img src="./images/about.jpeg" />
+    <footer id="footer"></footer>
+  </body>
+
+  <script>
+    function footerDate() {
+      year = new Date().getFullYear();
+
+      let footer_text = document.getElementById("footer");
+
+      footer_text.innerHTML = `© ${year} Mariya Abdul Ghafoor. All rights reserved.`;
+    }
+    footerDate();
+  </script>
+</html>

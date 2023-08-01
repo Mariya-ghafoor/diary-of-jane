@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="books.css" />
+    <title>Diary of Jane</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="quotes.html">Quotes</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+      </ul>
+    </nav>
+
+    <h1>Books written by Jane Austen</h1>
+
+    <div class="gallery">
+      <img src="./images/pride-and-prejudice.jpeg" />
+      <img src="./images/sense-and-sensibility.jpg" alt="" / >
+      <img src="./images/emma.jpeg" alt="" />
+      <img src="./images/persuasion.avif" alt="" />
+      <img src="./images/northanger-abbey.jpg" alt="" />
+      <img src="./images/mansfield-park.jpg" alt="" />
+    </div>
+    <footer id="footer"></footer>
+  </body>
+
+  <script>
+    function footerDate() {
+      year = new Date().getFullYear();
+
+      let footer_text = document.getElementById("footer");
+
+      footer_text.innerHTML = `© ${year} Mariya Abdul Ghafoor. All rights reserved.`;
+    }
+    footerDate();
+  </script>
+</html>
